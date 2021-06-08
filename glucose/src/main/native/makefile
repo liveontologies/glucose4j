@@ -122,9 +122,9 @@ endif
 	@#
 	@# patch verbose output
 	@#
-	$(VB) sed -i.bak -e 's,"\([=|]\),"c [${SIG}] \1,' $(DIR)/core/Solver.cc
-	$(VB) sed -i.bak -e 's,"\([=|]\),"c [${SIG}] \1,' $(DIR)/simp/SimpSolver.cc
-	$(VB) sed -i.bak -e 's,"\([=|]\),"c [${SIG}] \1,' $(DIR)/simp/Main.cc
+	$(VB) sed -i.bak -e 's,"c ,"c [${SIG}] ,' $(DIR)/core/Solver.cc
+	$(VB) sed -i.bak -e 's,"c ,"c [${SIG}] ,' $(DIR)/simp/SimpSolver.cc
+	$(VB) sed -i.bak -e 's,"c ,"c [${SIG}] ,' $(DIR)/simp/Main.cc
 	@#
 	@# patch archiver
 	@#
