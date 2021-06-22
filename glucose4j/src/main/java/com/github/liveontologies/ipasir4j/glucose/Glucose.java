@@ -23,8 +23,8 @@ package com.github.liveontologies.ipasir4j.glucose;
  */
 
 import com.github.liveontologies.ipasir4j.IpasirSolver;
-import com.github.liveontologies.ipasir4j.jna.JNAIpasir;
 import com.github.liveontologies.ipasir4j.jna.IpasirNativeSolver;
+import com.github.liveontologies.ipasir4j.jna.JNAIpasir;
 import com.sun.jna.Native;
 
 public class Glucose {
@@ -32,6 +32,16 @@ public class Glucose {
 	private final static JNAIpasir GLUCOSE_JNA = Native.load("glucose-syrup",
 			JNAIpasir.class);
 
+	/**
+	 * @return the name and the version of the incremental SAT solving library
+	 */
+	public static String getSignature() {
+		return GLUCOSE_JNA.ipasir_signature();
+	}
+
+	/**
+	 * @return a new solver instance
+	 */
 	public static IpasirSolver createSolver() {
 		return new IpasirNativeSolver(GLUCOSE_JNA);
 	}
